@@ -14,10 +14,10 @@ When("I increment the variable by {int}", function (number) {
 Then("the variable should contain {int}", function (number) {
   assert.equal(this.variable, number);
   const results = `
-  PASSED=6
-  FAILED=2
-  TOTAL=8
-  REPORT_PORTAL_LINK=http://reportportallink.com/some/kind/of/link
+  export PASSED=6
+  export FAILED=2
+  export TOTAL=8
+  export REPORT_PORTAL_LINK=http://reportportallink.com/some/kind/of/link
   `;
   writeResultsToFile(results)
 });
