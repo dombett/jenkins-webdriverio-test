@@ -23,6 +23,6 @@ Then("the variable should contain {int}", function (number) {
 });
 
 function writeResultsToFile(results) {
-  const filePath = path.join(__dirname, 'results')
+  const filePath = path.join(process.cwd(), 'results')
   fs.writeFileSync(filePath, results)
 }
