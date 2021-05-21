@@ -14,15 +14,15 @@ When("I increment the variable by {int}", function (number) {
 Then("the variable should contain {int}", function (number) {
   assert.equal(this.variable, number);
   const results = `
-  export PASSED=6
-  export FAILED=2
-  export TOTAL=8
-  export REPORT_PORTAL_LINK=http://reportportallink.com/some/kind/of/link
+  env.PASSED="6"
+  env.FAILED="2"
+  env.TOTAL="8"
+  env.REPORT_PORTAL_LINK=http://reportportallink.com/some/kind/of/link
   `;
-  writeResultsToFile(results)
+  writeResultsToFile(results, 'results.groovy')
 });
 
-function writeResultsToFile(results) {
-  const filePath = path.join(process.cwd(), 'results')
+function writeResultsToFile(results, resultsFile) {
+  const filePath = path.join(process.cwd(), resultsFile)
   fs.writeFileSync(filePath, results)
 }
