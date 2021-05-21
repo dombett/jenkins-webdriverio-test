@@ -13,15 +13,16 @@ When("I increment the variable by {int}", function (number) {
 
 Then("the variable should contain {int}", function (number) {
   assert.equal(this.variable, number);
-  const results = {
-    passed: 6,
-    failed: 2,
-    total: 8
-  }
+  const results = `
+  PASSED=6
+  FAILED=2
+  TOTAL=8
+  REPORT_PORTAL_LINK=http://reportportallink.com/some/kind/of/link
+  `;
   writeResultsToFile(results)
 });
 
 function writeResultsToFile(results) {
-  const filePath = path.join(__dirname, results)
-  fs.writeFileSync(filePath, JSON.stringify(results))
+  const filePath = path.join(__dirname, 'results')
+  fs.writeFileSync(filePath, results)
 }
