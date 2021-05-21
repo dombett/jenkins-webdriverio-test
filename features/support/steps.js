@@ -17,7 +17,7 @@ Then("the variable should contain {int}", function (number) {
   env.PASSED="6"
   env.FAILED="2"
   env.TOTAL="8"
-  env.REPORT_PORTAL_LINK=http://reportportallink.com/some/kind/of/link
+  env.REPORT_PORTAL_LINK="http://reportportallink.com/some/kind/of/link"
   `;
   writeResultsToFile(results, 'results.groovy')
 });
